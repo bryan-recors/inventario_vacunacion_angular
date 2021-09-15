@@ -13,6 +13,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 //tabla
 import {MatTableModule} from '@angular/material/table';
+//cards
+import {MatCardModule} from '@angular/material/card';
+//material para imputs del formulario
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [],
@@ -24,7 +29,10 @@ import {MatTableModule} from '@angular/material/table';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports:[
     MatButtonModule,
@@ -33,7 +41,10 @@ import {MatTableModule} from '@angular/material/table';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }

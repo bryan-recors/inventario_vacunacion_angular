@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Empleado } from 'src/app/models/empleados.models.';
 import { environment } from 'src/environments/environment';
 
@@ -12,6 +12,11 @@ export class EmpleadosService {
     private http:HttpClient
   ) { }
 
+  private getHeaders() {
+    const httpHeaders = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+    return { headers: httpHeaders };
+  }
+
   getAllEmpleados(){ //metodo que me devuelve todos los productos
     return this.http.get<Empleado[]>(`${environment.url_api}/usuarios/`);
   }
@@ -23,7 +28,8 @@ export class EmpleadosService {
   }
 
   createEmpleado(empleado: Empleado){
-    return this.http.post(`${environment.url_api}/usuarios/`,empleado);
+    let pJson = JSON.stringify(empleado);
+    return this.http.post((`${environment.url_api}/usuarios/`),pJson,this.getHeaders());
   }
 
   updateEmpleado(id:string, changes: Partial<Empleado>){
