@@ -7,12 +7,14 @@ import { NavComponent } from './components/nav/nav.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormUsuarioComponent } from './components/form-usuario/form-usuario.component';
+import { EditUsuarioComponent } from './components/edit-usuario/edit-usuario.component';
 
 @NgModule({
   declarations: [
     ListUsuariosComponent,
     NavComponent,
-    FormUsuarioComponent
+    FormUsuarioComponent,
+    EditUsuarioComponent
   ],
   imports: [
     CommonModule,

@@ -3,29 +3,46 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 //importo el servicio
 import { EmpleadosService } from 'src/app/core/services/empleados/empleados.service';
-//llamoal router
-import { Router } from '@angular/router';
+//llamoal router //obtener id //tipar parametros
+import { Router, ActivatedRoute, Params } from '@angular/router';
 //validaicon cedula
 import { MyValidators } from 'src/app/utils/validators';
+import { Empleado } from 'src/app/models/empleados.models.';
+
+
 
 @Component({
-  selector: 'app-form-usuario',
-  templateUrl: './form-usuario.component.html',
-  styleUrls: ['./form-usuario.component.scss']
+  selector: 'app-edit-usuario',
+  templateUrl: './edit-usuario.component.html',
+  styleUrls: ['./edit-usuario.component.scss']
 })
-export class FormUsuarioComponent implements OnInit {
+export class EditUsuarioComponent implements OnInit {
 
-   form = new FormGroup({})
-
+  form = new FormGroup({})
+  id:string='';
   constructor(
     private formBuilder:FormBuilder,
     private empleadosService:EmpleadosService,
-    private router:Router
-  ) { 
+    private router:Router,
+    private activeRoute:ActivatedRoute
+  ) {
     this.builForm();
-  }
+   }
 
   ngOnInit(): void {
+    //obtener datos del empleado con id 
+    this.activeRoute.params.subscribe((params:Params)=>{
+      this.id = params.id;
+      this.empleadosService.getEmpleado(this.id).subscribe(empleado =>{
+        //rellenar el formulario
+        this.form.patchValue({
+          cedula:empleado.cedula,
+          nombres:empleado.nombres,
+          apellidos:empleado.apellidos,
+          email:empleado.email
+        });
+      });
+    });
   }
 
   private builForm(){
@@ -42,7 +59,7 @@ export class FormUsuarioComponent implements OnInit {
     console.log(this.form.value);
     if(this.form.valid){
       const empleado = this.form.value;
-      this.empleadosService.createEmpleado(empleado).subscribe((newEmpleado)=>{
+      this.empleadosService.updateEmpleado(this.id,empleado).subscribe((newEmpleado)=>{
         //console.log(newEmpleado);
         this.router.navigate(['./admin/lista']);
       })

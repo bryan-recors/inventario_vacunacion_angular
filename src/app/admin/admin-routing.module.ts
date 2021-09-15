@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListUsuariosComponent } from './components/list-usuarios/list-usuarios.component';
 import { NavComponent } from './components/nav/nav.component';
 import {FormUsuarioComponent} from './components/form-usuario/form-usuario.component';
+import {EditUsuarioComponent} from './components/edit-usuario/edit-usuario.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
       },{
         path:'create',
         component:FormUsuarioComponent
+      },{
+        path:'edit/:id',
+        component:EditUsuarioComponent
       }
     ]
   },

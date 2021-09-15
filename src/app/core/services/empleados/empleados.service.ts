@@ -28,12 +28,11 @@ export class EmpleadosService {
   }
 
   createEmpleado(empleado: Empleado){
-    let pJson = JSON.stringify(empleado);
-    return this.http.post((`${environment.url_api}/usuarios/`),pJson,this.getHeaders());
+    return this.http.post((`${environment.url_api}/usuarios/`),empleado);
   }
 
   updateEmpleado(id:string, changes: Partial<Empleado>){
-    return this.http.put(`${environment.url_api}/usuarios/${id}`,{});
+    return this.http.put(`${environment.url_api}/usuarios/${id}`,changes);
   }
 
   deleteEmpleado(id:string){
