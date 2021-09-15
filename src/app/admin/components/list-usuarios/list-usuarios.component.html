@@ -1,1 +1,31 @@
-<p>list-usuarios works!</p>
+<table mat-table [dataSource]="empleados" class="mat-elevation-z8 empleados-table" >
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <th mar-cell *matCellDef="let empleado">{{empleado.id}}</th>
+    </ng-container>
+    <ng-container matColumnDef="cedula">
+        <th mat-header-cell *matHeaderCellDef>Cédula</th>
+        <th mar-cell *matCellDef="let empleado">{{empleado.cedula}}</th>
+    </ng-container>
+    <ng-container matColumnDef="nombres">
+        <th mat-header-cell *matHeaderCellDef>Nombres</th>
+        <th mar-cell *matCellDef="let empleado">{{empleado.nombres}}</th>
+    </ng-container>
+    <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+        <th mar-cell *matCellDef="let empleado">{{empleado.apellidos}}</th>
+    </ng-container>
+    <ng-container matColumnDef="correo">
+        <th mat-header-cell *matHeaderCellDef>Correo</th>
+        <th mar-cell *matCellDef="let empleado">{{empleado.email}}</th>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <th mar-cell *matCellDef="let empleado">
+            <button mat-raised-button >Editar</button>
+            <button mat-raised-button color= "warn"(click)="deleteEmpleados(empleado.id)">Elimitar</button>
+        </th>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

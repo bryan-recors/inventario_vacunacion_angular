@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+//servicio
+import {EmpleadosService} from './../../../core/services/empleados/empleados.service';
+import { Empleado } from './../../../models/empleados.models.';
 
 @Component({
   selector: 'app-list-usuarios',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListUsuariosComponent implements OnInit {
 
-  constructor() { }
+  empleados:Empleado[]=[];
+  displayedColumns: String[] = ['id','cedula','nombres','apellidos','correo','actions'];
+  constructor(
+    private empleadosService:EmpleadosService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchEmpleados();
+  }
+
+  fetchEmpleados(){
+    this.empleadosService.getAllEmpleados().subscribe(empleados => {
+      this.empleados = empleados;
+    })
+  }
+
+  deleteEmpleados(id:string){
+    this.empleadosService.deleteEmpleado(id).subscribe(rta =>{
+      console.log(rta); //respuesta
+      this.fetchEmpleados(); //actualizo 
+    })
   }
 
 }
