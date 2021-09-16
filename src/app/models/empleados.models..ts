@@ -4,6 +4,7 @@ export interface Empleado{
     nombres:string;
     apellidos:string;
     email:string;
+    is_superuser:boolean;
     username:string;
     fecha_nacimiento:string;
     direccion:string;

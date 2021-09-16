@@ -36,11 +36,16 @@ export class LoginComponent implements OnInit {
       if(this.form.valid){
         const empleado = this.form.value;
         this.empleadosService.loginUsuario(empleado).subscribe((datosUsuario)=>{
-          //console.log(datosUsuario);
+          console.log(datosUsuario);
           this.empleados = datosUsuario;
           this.id = this.empleados.user.id;
-           //console.log(this.id);
-          this.router.navigate([`home/edit/${this.id}`]);
+          this.isAdmin = this.empleados.user.is_superuser;
+          if (this.isAdmin) {
+            this.router.navigate(['/admin']);
+          }else{
+            //console.log(this.id);
+            this.router.navigate([`home/edit/${this.id}`]);
+          } 
         })
       }
 
