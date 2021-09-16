@@ -7,7 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ##Como Utilizar
-
 Usuarios que se peuden utilizar para probar 
 
 Usuario Administrador si se usan estas credenciales podra crear /editar/eliminar/listar /empleados  con los campos solicitados
