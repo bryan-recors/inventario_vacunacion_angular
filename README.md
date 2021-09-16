@@ -32,6 +32,16 @@ el modulo Core contiene el servicio que se comsume para realizar las peticiones 
 la carpeta utils contiene el archivo donde esta una validacion personalizada,
 la carpeta model contiene una referencia a los datos que se obtendran a traves de  los servicios
 
+## Descripcion del Backend
+backend_vacunacion
+Backend echo en Django
+
+Api rest realizado COn Django y Django Rest Fraamework 
+backend subido a heroku endpoints
+https://apivacunacion.herokuapp.com/usuarios/ 
+https://apivacunacion.herokuapp.com/usuario/login/ 
+https://apivacunacion.herokuapp.com/usuarios/1
+
 
 ## Code scaffolding 
 
