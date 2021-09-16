@@ -1,0 +1,26 @@
+
+<mat-card>
+    <mat-form-field>
+        <mat-label>Filtrar por Tipo de Vacuna</mat-label>
+        <mat-select name= "q" [(ngModel)]="filterEmpleados">
+            <mat-option>None</mat-option>
+            <mat-option value="Pfizer">Pfizer</mat-option>
+            <mat-option value="AztraZeneca">AztraZeneca</mat-option>
+            <mat-option value="Sinovac">Sinovac</mat-option>
+            <mat-option value="Sputnik">Sputnik</mat-option>
+            <mat-option value="Jhonson&Jhonson">Jhonson&Jhonson</mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-card>
+
+<br>
+
+<div class="product-grid">
+    <!-- llamo al componente de producto -->
+    <app-reporte 
+        *ngFor="let empleado of empleados | filtroVacunacion:filterEmpleados " 
+        (productClicked)="clickProduct($event)" 
+        [empleado]="empleado">
+    </app-reporte>
+
+</div>

@@ -4,6 +4,7 @@ import { ListUsuariosComponent } from './components/list-usuarios/list-usuarios.
 import { NavComponent } from './components/nav/nav.component';
 import {FormUsuarioComponent} from './components/form-usuario/form-usuario.component';
 import {EditUsuarioComponent} from './components/edit-usuario/edit-usuario.component';
+import {ReportesComponent} from './components/reportes/reportes.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
       },{
         path:'edit/:id',
         component:EditUsuarioComponent
+      },{
+        path:'reporte',
+        component:ReportesComponent
       }
     ]
   },

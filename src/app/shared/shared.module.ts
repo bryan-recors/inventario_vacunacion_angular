@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 //importo material
 import { MaterialModule } from '../material/material.module';
+import { FiltroVacunacionPipe } from './pipe/filtro-vacunacion.pipe';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FiltroVacunacionPipe
   ],
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { MaterialModule } from '../material/material.module';
   //que sea exportables para ser usados por otros modulos
   exports:[
     HeaderComponent,
+    FiltroVacunacionPipe
   ]
 })
 export class SharedModule { }

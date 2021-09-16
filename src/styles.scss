@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.product-grid{
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px 20px;
+}
