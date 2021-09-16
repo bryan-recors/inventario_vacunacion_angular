@@ -21,6 +21,8 @@ Usuario empleado  si se usa este usuario se puede ir a  actualizar y completar e
 username:stalinsandoval
 password: basi1724
 
+pagina subida a firebase para pruebas: https://inventario-vacunacion-sandoval.web.app/
+
 ## Descripcion del desarrollo 
 el proyecto esta modularizado  cree modulos  material que importa todo lo que se usa para dar estilos con  Material DEsign 
 EL modulo home contiene  el inicio de secion que evalua si el usuario ingresado es administrador le dirige a l modulo de administracion donde este usuario podra crear, editar , listar o eliminar un usuario Empleado.
