@@ -9,4 +9,15 @@ export class MyValidators{
         }
         return null;
     }
+
+    static validacionTipoVacuna(control:AbstractControl){
+        const value = control.value; //obtener el valor
+        //console.log(value);
+        if((value === "Pfizer") || (value === "AztraZeneca") || (value === "Sinovac") 
+            || (value === "Sputnik") || (value === "Jhonson&Jhonson")|| (value === "")){
+            return {tipov_invalid: true};
+        }
+        return null;
+    }
 }
+

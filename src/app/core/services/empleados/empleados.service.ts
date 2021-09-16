@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Empleado } from 'src/app/models/empleados.models.';
 import { environment } from 'src/environments/environment';
+import { LoginEmpleado } from 'src/app/models/login.models';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,9 @@ export class EmpleadosService {
     return this.http.delete(`${environment.url_api}/usuarios/${id}`);
   }
  
+  loginUsuario(empleado: LoginEmpleado){
+    return this.http.post<Empleado>((`${environment.url_api}/usuario/login/`),empleado);
+  }
   
 
 

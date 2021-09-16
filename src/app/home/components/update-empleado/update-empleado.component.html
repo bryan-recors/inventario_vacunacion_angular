@@ -1,0 +1,166 @@
+<div class="contenedor">
+    <form [formGroup]="form" (ngSubmit)="saveEmpleado($event)" class="custom-form">
+        <mat-card>
+            <mat-card-title>Mis datos</mat-card-title>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Cédula" formControlName="cedula" matInput type="text">
+                        </mat-form-field>
+                        <div *ngIf="cedulaField!.errors && cedulaField!.dirty">
+                            <p *ngIf="cedulaField!.hasError('ci_invalid')">Cedula Incorrecta </p>
+                            <p *ngIf="cedulaField!.hasError('pattern')">Este campo solo debe contener numeros</p>
+                            <p *ngIf="cedulaField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Nombres" formControlName="nombres" matInput type="text">
+                        </mat-form-field>
+                        <div *ngIf="nombresField!.errors && nombresField!.dirty">
+                            <p *ngIf="nombresField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="nombresField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Apellidos" formControlName="apellidos" matInput type="text">
+                        </mat-form-field>
+                        <div *ngIf="apellidosField!.errors && apellidosField!.dirty">
+                            <p *ngIf="apellidosField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="apellidosField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Correo" formControlName="email" matInput type="email">
+                        </mat-form-field>
+                        <div *ngIf="emailField!.errors && emailField!.dirty">
+                            <p *ngIf="emailField!.hasError('email')">Correo Incorrecto </p>
+                            <p *ngIf="emailField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <!--****************************los nuevos campos****************-->
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <!--
+                            <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="fecha_nacimiento" placeholder= "Fecha de Nacimiento" >
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker ></mat-datepicker>  
+                            -->
+                            <input placeholder= "Fecha de Nacimiento " formControlName="fecha_nacimiento" matInput type="date">
+                        </mat-form-field>
+                        <!--
+                             <input placeholder= "Fecha de Nacimiento"  matInput type="text">
+                        <div *ngIf="nacimientoField!.errors && nacimientoField!.dirty">
+                            <p *ngIf="nacimientoField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="nacimientoField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Dirección" formControlName="direccion" matInput type="text">
+                        </mat-form-field>
+                        <!--
+                        <div *ngIf="direccionField!.errors && direccionField!.dirty">
+                            <p *ngIf="direccionField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="direccionField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Celular" formControlName="telefono_movil" matInput type="text">
+                        </mat-form-field>
+                        <!--
+                        <div *ngIf="movilField!.errors && movilField!.dirty">
+                            <p *ngIf="movilField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="movilField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                         -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Estado de vacunacion" formControlName="estado_vacunacion" matInput type="text">
+                        </mat-form-field>
+                        <div *ngIf="estadoVacunacionField!.errors && estadoVacunacionField!.dirty">
+                            <p *ngIf="estadoVacunacionField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="estadoVacunacionField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <!--****************************si el estado de vacunacion es verdadero****************-->
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <mat-label>Tipo de vacuna</mat-label>
+                            <mat-select formControlName="tipo_vacuna">
+                                <mat-option>None</mat-option>
+                                <mat-option value="Pfizer">Pfizer</mat-option>
+                                <mat-option value="AztraZeneca">AztraZeneca</mat-option>
+                                <mat-option value="Sinovac">Sinovac</mat-option>
+                                <mat-option value="Sputnik">Sputnik</mat-option>
+                                <mat-option value="Jhonson&Jhonson">Jhonson&Jhonson</mat-option>
+                            </mat-select>
+                           
+                        </mat-form-field>
+                        <!--
+                             <input  formControlName="tipo_vacuna" matInput type="text">
+                        <div *ngIf="tipoVacunaField!.errors && tipoVacunaField!.dirty">
+                            <p *ngIf="tipoVacunaField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="tipoVacunaField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                    -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <!--
+                            <input matInput [matDatepicker]="myDatepicker" [min]="minDate" formControlName="fecha_vacuna" placeholder= "Fecha de vacunación" >
+                            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepicker ></mat-datepicker>  
+                            -->
+                            <input placeholder= "Fecha de vacuna" formControlName="fecha_vacuna" matInput type="date">
+                        </mat-form-field>
+                        <!--
+                        <div *ngIf="fechaVacunaField!.errors && fechaVacunaField!.dirty">
+                            <p *ngIf="fechaVacunaField!.hasError('pattern')">Este campo no debe tener numeros</p>
+                            <p *ngIf="fechaVacunaField!.hasError('required')">Este campo es requerido</p>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input placeholder= "Número de Dosis" formControlName="numero_dosis" matInput type="text">
+                        </mat-form-field>
+                        <div *ngIf="numeroDosisField!.errors && numeroDosisField!.dirty">
+                            <p *ngIf="numeroDosisField!.hasError('pattern')">Este campo es numérico</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Guardar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

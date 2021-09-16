@@ -8,7 +8,7 @@ export interface Empleado{
     fecha_nacimiento:string;
     direccion:string;
     telefono_movil:string;
-    estado_vacunacion:string;
+    estado_vacunacion:boolean;
     tipo_vacuna:string;
     fecha_vacuna:string;
     numero_dosis:string;

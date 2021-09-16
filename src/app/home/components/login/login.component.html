@@ -1,1 +1,32 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="login($event)" class="custom-form">
+    <mat-card>
+        <mat-card-title >
+            Inicio de Sesión
+        </mat-card-title>
+        <mat-card-content >
+            <div class="row" >
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder= "Username" formControlName="username" matInput type="text">
+                    </mat-form-field>
+                    <div *ngIf="usernameField!.errors && usernameField!.dirty">
+                        <p *ngIf="usernameField!.hasError('required')">Este campo es requerido</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder= "Password" formControlName="password" matInput type="password">
+                    </mat-form-field>
+                    <div *ngIf="passwordField!.errors && passwordField!.dirty">
+                        <p *ngIf="passwordField!.hasError('required')">Este campo es requerido</p>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Ingresar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

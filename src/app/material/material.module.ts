@@ -18,7 +18,11 @@ import {MatCardModule} from '@angular/material/card';
 //material para imputs del formulario
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+//calendario
+import {MatDatepickerModule}  from '@angular/material/datepicker';
+import {MatNativeDateModule}  from '@angular/material/core';
+//select
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [],
   imports: [
@@ -32,7 +36,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   exports:[
     MatButtonModule,
@@ -44,7 +51,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }
