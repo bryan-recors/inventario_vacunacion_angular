@@ -86,12 +86,10 @@
                         <mat-form-field>
                             <input placeholder= "Celular" formControlName="telefono_movil" matInput type="text">
                         </mat-form-field>
-                        <!--
                         <div *ngIf="movilField!.errors && movilField!.dirty">
-                            <p *ngIf="movilField!.hasError('pattern')">Este campo no debe tener numeros</p>
-                            <p *ngIf="movilField!.hasError('required')">Este campo es requerido</p>
+                            <p *ngIf="movilField!.hasError('pattern')">Máximo 10 digitos numéricos</p>
                         </div>
-                         -->
+                        
                     </div>
                 </div>
                 <div class="row">
@@ -153,7 +151,7 @@
                             <input placeholder= "Número de Dosis" formControlName="numero_dosis" matInput type="text">
                         </mat-form-field>
                         <div *ngIf="numeroDosisField!.errors && numeroDosisField!.dirty">
-                            <p *ngIf="numeroDosisField!.hasError('pattern')">Este campo es numérico</p>
+                            <p *ngIf="numeroDosisField!.hasError('pattern')">No puede ser más de 3 Dosis</p>
                         </div>
                     </div>
                 </div>

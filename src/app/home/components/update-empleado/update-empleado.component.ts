@@ -61,7 +61,7 @@ export class UpdateEmpleadoComponent implements OnInit {
       email:['',[Validators.required,Validators.email]],
       fecha_nacimiento:[''],
       direccion:[''],
-      telefono_movil:['',[Validators.pattern('[0-3]{0,10}')]],
+      telefono_movil:['',[Validators.pattern('[0-9]{1,10}')]],
       estado_vacunacion:[''],
       tipo_vacuna:[''],
       fecha_vacuna:[''],
@@ -77,7 +77,7 @@ export class UpdateEmpleadoComponent implements OnInit {
       const empleado = this.form.value;
       this.empleadosService.updateEmpleado(this.id,empleado).subscribe((newEmpleado)=>{
         //console.log(newEmpleado);
-        //this.router.navigate(['./admin/lista']);
+        this.router.navigate(['./home']);
       })
     }
   }
